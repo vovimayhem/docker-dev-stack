@@ -2,6 +2,9 @@
 FROM debian:jessie
 MAINTAINER Roberto Quintanilla <roberto.quintanilla@gmail.com>
 
+# We'll store the original contents of $PATH prior to the installation...
+ENV ORIGINAL_PATH $PATH
+
 ################################################################################
 # 1: Add the "app" user and group first to make sure their IDs get assigned
 # consistently - we definitely like them to be both 1000, to match our
@@ -22,11 +25,14 @@ RUN cp /etc/default/useradd /etc/default/useradd.bak \
 # - curl: Used to fetch repo keys, the MySQL Config repository, and interpreter code
 # - ca-certificates: Used by curl to fetch from secure URLs
 #
-# Runtime & Build Dependencies (428 MB):
+# Runtime & Build Dependencies (555 MB):
 #
 # Runtime: Dependencies needed for running common applications:
 # - systemtap-sdt-dev: Installs dtrace
+# - llvm: Rubinius runtime dependency (checkme!)
 # Build:
+# - llvm-dev: Rubinius build dependency
+# - libedit-dev: Rubinius build dependency
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y curl ca-certificates --no-install-recommends \
   && echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
@@ -38,7 +44,7 @@ RUN apt-get update \
   && runtimeDeps="imagemagick libc6 libevent-2.0-5 libevent-core-2.0-5 libevent-extra-2.0-5 libevent-openssl-2.0-5 libevent-pthreads-2.0-5 libffi6 libreadline6 libssl1.0.0 llvm openssl procps systemtap-sdt-dev" \
   && appRuntimeDeps="libyaml-0-2 mysql-client postgresql-client sqlite3" \
   && buildDeps="autoconf bison bzip2 gcc git libc6-dev libbz2-dev libcurl4-openssl-dev libevent-dev libglib2.0-dev libjpeg-dev libmagickcore-dev libmagickwand-dev libxml2-dev libxslt-dev llvm-dev make tar wget" \
-  && rubyBuildDeps="patch isomd5sum libffi-dev libgdbm-dev libncurses-dev libreadline-dev libssl-dev libyaml-dev zlib1g-dev" \
+  && rubyBuildDeps="patch isomd5sum libffi-dev libgdbm-dev libncurses-dev libreadline-dev libssl-dev libyaml-dev zlib1g-dev libedit-dev" \
   && nodeBuildDeps="g++ python" \
   && appBuildDeps="libyaml-dev libsqlite3-dev libmysqlclient-dev libpq-dev" \
   && DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y $runtimeDeps $appRuntimeDeps \
@@ -46,9 +52,5 @@ RUN apt-get update \
     --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/pgdg.list
 
-# NOTE: Currently ending off at 752.9 MB
-
-#
-# #USER app
-# #WORKDIR /app
-# #CMD ["/bin/bash"]
+# NOTE: Currently ending off at 753.8 MB
+CMD ["/bin/bash"]
