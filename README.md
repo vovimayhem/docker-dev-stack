@@ -19,13 +19,14 @@ This is the new strategy:
 
 ### Working with Ruby?
 
-  Pull any of the following containers from Docker Hub:
-  - MRI 2.2 (2.2.0):        `docker pull vovimayhem/dev-stack:ruby-2.2`
-  - MRI 2.1 (2.1.5):        `docker pull vovimayhem/dev-stack:ruby-2.1`
-  - MRI 2.0 (2.0.0-p598):   `docker pull vovimayhem/dev-stack:ruby-2.0`
-  - MRI 1.9 (1.9.3-p551):   `docker pull vovimayhem/dev-stack:ruby-1.9`
-  - Rubinius (2.4.1):       `docker pull vovimayhem/dev-stack:rbx-2.4`
-  - JRuby:                  `docker pull vovimayhem/dev-stack:jruby`
+Pull any of the following containers from Docker Hub:
+
+- MRI 2.2 (2.2.0):        `docker pull vovimayhem/dev-stack:ruby-2.2`
+- MRI 2.1 (2.1.5):        `docker pull vovimayhem/dev-stack:ruby-2.1`
+- MRI 2.0 (2.0.0-p598):   `docker pull vovimayhem/dev-stack:ruby-2.0`
+- MRI 1.9 (1.9.3-p551):   `docker pull vovimayhem/dev-stack:ruby-1.9`
+- Rubinius (2.4.1):       `docker pull vovimayhem/dev-stack:rbx-2.4`
+- JRuby:                  `docker pull vovimayhem/dev-stack:jruby`
 
 Ruby containers will include NodeJS *Stable*, because most likely you'll be
 developing a Ruby-On-Rails app, and you'll deffinitely need a Javascript runtime
@@ -39,15 +40,16 @@ section.
 
 ### Working with NodeJS?
 
-  Pull any of the following containers:
-  - NodeJS Stable (v0.10.34): `docker pull vovimayhem/dev-stack:nodejs-stable`
-  - NodeJS Preview (v0.11.14): `docker pull vovimayhem/dev-stack:nodejs-preview`
+Pull any of the following containers:
+
+- NodeJS Stable (v0.10.34): `docker pull vovimayhem/dev-stack:nodejs-stable`
+- NodeJS Preview (v0.11.14): `docker pull vovimayhem/dev-stack:nodejs-preview`
 
 ### Working with Java
 
-  Really??? You'd better pull my other Docker project:
+Really??? You'd better pull my other Docker project:
 
-  `docker pull vovimayhem/java` (I'll make a java tag later on, with the 'app' user)
+`docker pull vovimayhem/java` (I'll make a java tag later on, with the 'app' user)
 
 ## Language Support:
 
@@ -60,19 +62,19 @@ section.
 
 ### Ruby:
 
-  - Matz Ruby Interpreter (The most commonly used):
-    - 2.2.0
-    - 2.1.5
-    - 2.0.0 (patch level 598)
-    - 1.9.3 (patch level 551)
-  - Rubinius
-    - 2.4.1
-  - JRuby coming soon - along with Java
+- Matz Ruby Interpreter (The most commonly used):
+  - 2.2.0
+  - 2.1.5
+  - 2.0.0 (patch level 598)
+  - 1.9.3 (patch level 551)
+- Rubinius
+  - 2.4.1
+- JRuby coming soon - along with Java
 
 ### Javascript
 
-  - NodeJS:
-    - 0.10.34
+- NodeJS:
+  - 0.10.34
 
 ## Alpha release notes (or I'm in such a big hurry right now)
 
