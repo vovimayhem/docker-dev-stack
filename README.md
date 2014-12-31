@@ -27,9 +27,15 @@ This is the new strategy:
   - Rubinius (2.4.1):       `docker pull vovimayhem/dev-stack:rbx-2.4`
   - JRuby:                  `docker pull vovimayhem/dev-stack:jruby`
 
-Ruby containers will include NodeJS, because most likely you'll be developing
-  a Ruby-On-Rails app, and you'll deffinitely need a Javascript runtime for the
-  asset compiling. You can remove NodeJS if your'e not doing so.
+Ruby containers will include NodeJS *Stable*, because most likely you'll be
+developing a Ruby-On-Rails app, and you'll deffinitely need a Javascript runtime
+for the asset compiling. You can remove NodeJS if your'e not doing so.
+
+If your'e asking to include NodeJS *Preview*, most likely you're looking to
+develop a NodeJS project with the newest of the newest NodeJS code, within your
+rails app. The best practice is for you to work on a new project that builds
+upon the vovimayhem/dev-stack:nodejs-preview container instead - see the next
+section.
 
 ### Working with NodeJS?
 
