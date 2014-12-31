@@ -1,5 +1,3 @@
-
-
 # Ruby post-build Gem dirs:
  - ruby 2.2.0:      /opt/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0
  - ruby 2.1.5:      /opt/rubies/ruby-2.1.5/lib/ruby/gems/2.1.0
