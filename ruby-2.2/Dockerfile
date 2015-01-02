@@ -21,7 +21,7 @@ ONBUILD ENV PATH $GEM_HOME/bin:$PATH
 
 # 5: Of course! Create the /app/vendor/bundle folder (if it does not exist),
 # and configure bundler to take this path:
-ONBUILD RUN mkdir -p /app/vendor/bundle && \
+ONBUILD RUN mkdir -p /app/vendor/bundle && rm -rf /app/vendor/bundle/* && \
 bundle config --global path "$GEM_HOME" && \
 bundle config --global bin "$GEM_HOME/bin"
 
